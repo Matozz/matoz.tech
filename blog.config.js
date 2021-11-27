@@ -1,11 +1,11 @@
 const BLOG = {
-  title: "@matoztech",
+  title: "Matoz Blog",
   author: "Matoz",
   email: "matoztech@gmail.com",
   link: "https://nobelium.vercel.app",
   description: "This gonna be an awesome website.",
   lang: "zh-CN", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
-  appearance: "auto", // ['light', 'dark', 'auto'],
+  appearance: "light", // ['light', 'dark', 'auto'],
   font: "sans-serif", // ['sans-serif', 'serif']
   lightBackground: "#ffffff", // use hex value, don't forget '#' e.g #fffefc
   darkBackground: "#18181B", // use hex value, don't forget '#'
@@ -22,7 +22,8 @@ const BLOG = {
     keywords: ["Blog", "Website", "Notion"],
     googleSiteVerification: "", // Remove the value or replace it with your own google site verification code
   },
-  notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
+  // notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
+  notionPageId: "c672bb8f59454563a38d5bbdd4c6b884", // DO NOT CHANGE THIS！！！
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN, // Useful if you prefer not to make your database public
   analytics: {
     provider: "", // Currently we support Google Analytics and Ackee, please fill with 'ga' or 'ackee', leave it empty to disable it.

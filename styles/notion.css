@@ -39,11 +39,20 @@ svg + .notion-page-title-text {
   @apply text-gray-600 dark:text-gray-300;
 }
 
+.dark .notion-code {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.notion-code {
+  padding: 10px 16px 10px 16px;
+  line-height: 1.5rem;
+}
+
 .notion-code > code {
   @apply text-gray-900;
 }
 
-pre[class*='language-'] {
+pre[class*="language-"] {
   line-height: inherit;
 }
 
@@ -66,6 +75,7 @@ pre[class*='language-'] {
 }
 .notion-quote {
   padding: 0.2em 0.9em;
+  font-size: 1em;
 }
 .notion-collection {
   @apply max-w-full;

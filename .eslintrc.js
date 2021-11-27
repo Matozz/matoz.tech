@@ -2,26 +2,30 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
-  extends: ['plugin:react/recommended', 'next', 'standard'],
+  extends: ["plugin:react/recommended", "next", "standard"],
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: 'module'
+    sourceType: "module",
   },
-  plugins: ['react'],
+  plugins: ["react"],
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: "detect",
+    },
   },
   rules: {
-    'react/prop-types': 'off'
+    "react/prop-types": "off",
+    "comma-dangle": "off",
+    semi: "off",
+    quotes: "off",
+    "multiline-ternary": "off",
   },
   globals: {
-    React: true
-  }
-}
+    React: true,
+  },
+};
