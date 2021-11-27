@@ -1,20 +1,21 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import BLOG from "@/blog.config";
-import CJK from "@/lib/cjk";
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import BLOG from '@/blog.config'
+import CJK from '@/lib/cjk'
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+  static async getInitialProps (ctx) {
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
   }
 
-  render() {
+  render () {
     return (
       <Html
         lang={BLOG.lang}
-        className={BLOG.appearance === "dark" ? "dark" : undefined}
+        className={BLOG.appearance === 'dark' ? 'dark' : undefined}
       >
         <Head>
-          {BLOG.font && BLOG.font === "serif" ? (
+          {BLOG.font && BLOG.font === 'serif'
+            ? (
             <>
               <link
                 rel="preload"
@@ -31,7 +32,8 @@ class MyDocument extends Document {
                 crossOrigin="anonymous"
               />
             </>
-          ) : (
+              )
+            : (
             <>
               <link
                 rel="preload"
@@ -48,9 +50,9 @@ class MyDocument extends Document {
                 crossOrigin="anonymous"
               />
             </>
-          )}
+              )}
 
-          {["zh", "ja", "ko"].includes(
+          {['zh', 'ja', 'ko'].includes(
             BLOG.lang.slice(0, 2).toLocaleLowerCase()
           ) && (
             <>
@@ -63,20 +65,20 @@ class MyDocument extends Document {
                 rel="preload"
                 as="style"
                 href={`https://fonts.googleapis.com/css2?family=Noto+${
-                  BLOG.font === "serif" ? "Serif" : "Sans"
+                  BLOG.font === 'serif' ? 'Serif' : 'Sans'
                 }+${CJK()}:wght@400;500;700&display=swap`}
               />
               <link
                 rel="stylesheet"
                 href={`https://fonts.googleapis.com/css2?family=Noto+${
-                  BLOG.font === "serif" ? "Serif" : "Sans"
+                  BLOG.font === 'serif' ? 'Serif' : 'Sans'
                 }+${CJK()}:wght@400;500;700&display=swap`}
               />
               <noscript>
                 <link
                   rel="stylesheet"
                   href={`https://fonts.googleapis.com/css2?family=Noto+${
-                    BLOG.font === "serif" ? "Serif" : "Sans"
+                    BLOG.font === 'serif' ? 'Serif' : 'Sans'
                   }+${CJK()}:wght@400;500;700&display=swap`}
                 />
               </noscript>
@@ -84,17 +86,8 @@ class MyDocument extends Document {
           )}
           <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
           <link rel="icon" href="/favicon.ico" />
-          <link
-            rel="apple-touch-icon"
-            sizes="192x192"
-            href="/apple-touch-icon.png"
-          ></link>
-          <link
-            rel="alternate"
-            type="application/rss+xml"
-            title="RSS 2.0"
-            href="/feed"
-          ></link>
+          <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png"></link>
+          <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed"></link>
           {/* {BLOG.appearance === 'auto'
             ? (
             <>
@@ -112,8 +105,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument
