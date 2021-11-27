@@ -3,7 +3,7 @@ const BLOG = {
   author: "Matoz",
   email: "matoztech@gmail.com",
   link: "https://nobelium.vercel.app",
-  description: "This gonna be an awesome website.",
+  description: "A blog made with love ❤️.",
   lang: "zh-CN", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   appearance: "light", // ['light', 'dark', 'auto'],
   font: "sans-serif", // ['sans-serif', 'serif']

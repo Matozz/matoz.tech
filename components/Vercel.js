@@ -5,6 +5,8 @@ const Vercel = () => {
       target="_blank"
       rel="noreferrer"
       aria-label="Vercel"
+      style={{ "--tw-invert": "invert(25%)" }}
+      className="dark:invert"
     >
       <svg
         width="135"
@@ -36,7 +38,7 @@ const Vercel = () => {
         </defs>
       </svg>
     </a>
-  )
-}
+  );
+};
 
-export default Vercel
+export default Vercel;

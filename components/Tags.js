@@ -12,7 +12,7 @@ const Tags = ({ tags, currentTag }) => {
               key={key}
               className={`${
                 Object.keys(tags).length - 1 !== index ? "mr-3" : ""
-              } font-medium border whitespace-nowrap dark:text-gray-300 rounded ${
+              } font-normal border whitespace-nowrap hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-gray-300 rounded transition-colors duration-200 ${
                 selected
                   ? "text-white bg-gray-500 border-gray-500 dark:bg-gray-600 dark:border-gray-600"
                   : "bg-gray-100 border-gray-100 text-gray-400 dark:bg-night dark:border-gray-700"
@@ -22,7 +22,7 @@ const Tags = ({ tags, currentTag }) => {
                 key={key}
                 href={selected ? "/search" : `/tag/${encodeURIComponent(key)}`}
               >
-                <a className="px-4 py-2 block ">{`${key} (${tags[key]})`}</a>
+                <a className="px-4 py-1 block ">{`${key} (${tags[key]})`}</a>
               </Link>
             </li>
           );

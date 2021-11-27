@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
+import Image from "next/image";
 import BLOG from "@/blog.config";
 import { useLocale } from "@/lib/locale";
 
@@ -25,9 +27,19 @@ const NavBar = () => {
       document.documentElement.classList.remove("dark");
       setTheme("light");
     }
+  }, [theme]);
+
+  useEffect(() => {
+    const handleThemeChange = (e) => {
+      toggleTheme(e.matches ? "light" : "dark");
+    };
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", handleThemeChange);
+    return window.removeEventListener("change", handleThemeChange);
   }, []);
 
-  const toggleTheme = () => {
+  const toggleTheme = (theme) => {
     if (theme === "dark") {
       document.documentElement.classList.remove("dark");
       setTheme("light");
@@ -41,11 +53,19 @@ const NavBar = () => {
 
   return (
     <div className="flex items-center flex-shrink-0">
+      <Head>
+        <meta
+          name="theme-color"
+          content={
+            theme === "dark" ? BLOG.darkBackground : BLOG.lightBackground
+          }
+        />
+      </Head>
       <button
         aria-label="Toggle Dark Mode"
         type="button"
-        className="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4"
-        onClick={toggleTheme}
+        className="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4 hover:scale-110 active:scale-90 transition-transform duration-200"
+        onClick={() => toggleTheme(theme)}
       >
         {theme === "light" ? (
           <svg
@@ -127,34 +147,15 @@ const Header = ({ navBarTitle, fullWidth }) => {
         <div className="flex items-center">
           <Link href="/">
             <a aria-label={BLOG.title}>
-              <div className="h-6">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    width="24"
-                    height="24"
-                    className="fill-current text-black dark:text-white"
-                  />
-                  <rect width="24" height="24" fill="url(#paint0_radial)" />
-                  <defs>
-                    <radialGradient
-                      id="paint0_radial"
-                      cx="0"
-                      cy="0"
-                      r="1"
-                      gradientUnits="userSpaceOnUse"
-                      gradientTransform="rotate(45) scale(39.598)"
-                    >
-                      <stop stopColor="#CFCFCF" stopOpacity="0.6" />
-                      <stop offset="1" stopColor="#E9E9E9" stopOpacity="0" />
-                    </radialGradient>
-                  </defs>
-                </svg>
+              <div className="flex">
+                <Image
+                  width={40}
+                  height={40}
+                  src={`https://avatars.dicebear.com/api/big-smile/${Date.now()}.svg`}
+                  alt="Lucky Icon"
+                  title="Lucky Icon"
+                  className="hover:scale-110 active:scale-90 transition-transform duration-300"
+                />
               </div>
             </a>
           </Link>
