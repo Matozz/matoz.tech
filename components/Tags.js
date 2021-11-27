@@ -12,7 +12,7 @@ const Tags = ({ tags, currentTag }) => {
               key={key}
               className={`${
                 Object.keys(tags).length - 1 !== index ? "mr-3" : ""
-              } font-normal border whitespace-nowrap hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-gray-300 rounded transition-colors duration-200 ${
+              } font-normal border whitespace-nowrap hover:opacity-70 dark:text-gray-300 rounded transition-opacity duration-200 ${
                 selected
                   ? "text-white bg-gray-500 border-gray-500 dark:bg-gray-600 dark:border-gray-600"
                   : "bg-gray-100 border-gray-100 text-gray-400 dark:bg-night dark:border-gray-700"
