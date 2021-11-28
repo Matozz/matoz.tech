@@ -4,10 +4,12 @@ import Head from "next/head";
 import Image from "next/image";
 import BLOG from "@/blog.config";
 import { useLocale } from "@/lib/locale";
+import { useTheme } from "@/lib/theme";
 
 const NavBar = () => {
-  const [theme, setTheme] = useState("light");
   const locale = useLocale();
+  const { theme, setTheme } = useTheme();
+
   const links = [
     { id: 0, name: locale.NAV.INDEX, to: BLOG.path || "/", show: true },
     { id: 1, name: locale.NAV.ABOUT, to: "/about", show: BLOG.showAbout },
