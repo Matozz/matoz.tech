@@ -2,7 +2,7 @@ const BLOG = {
   title: "Matoz Blog",
   author: "Matoz",
   email: "matoztech@gmail.com",
-  link: "https://nobelium.vercel.app",
+  link: "https://matoz.tech",
   description: "A blog made with love ❤️.",
   lang: "zh-CN", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   appearance: "light", // ['light', 'dark', 'auto'],
@@ -12,7 +12,7 @@ const BLOG = {
   path: "", // leave this empty unless you want to deploy Nobelium in a folder
   since: 2021, // If leave this empty, current year will be used.
   postsPerPage: 7,
-  sortByDate: false,
+  sortByDate: true,
   showAbout: true,
   showArchive: true,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar

@@ -111,6 +111,7 @@ const NavBar = () => {
 };
 
 const Header = ({ navBarTitle, fullWidth }) => {
+  const [iconSeed, setIconSeed] = useState(Date.now());
   const useSticky = !BLOG.autoCollapsedNavBar;
   const navRef = useRef(null);
   const sentinalRef = useRef([]);
@@ -134,11 +135,12 @@ const Header = ({ navBarTitle, fullWidth }) => {
     // }
     /* eslint-disable-line */
   }, [sentinalRef]);
+
   return (
     <>
-      <div className="observer-element h-4 md:h-12" ref={sentinalRef}></div>
+      <div className="observer-element md:h-12" ref={sentinalRef}></div>
       <div
-        className={`sticky-nav m-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 bg-opacity-60 ${
+        className={`sticky-nav m-auto w-full h-6 flex flex-row justify-between items-center mb-6 md:mb-12 py-8 bg-opacity-60 ${
           !fullWidth ? "max-w-3xl px-4" : "px-4 md:px-24"
         }`}
         id="sticky-nav"
@@ -149,9 +151,10 @@ const Header = ({ navBarTitle, fullWidth }) => {
             <a aria-label={BLOG.title}>
               <div className="flex">
                 <Image
-                  width={40}
-                  height={40}
-                  src={`https://avatars.dicebear.com/api/big-smile/${Date.now()}.svg`}
+                  onClick={() => setIconSeed(Date.now())}
+                  width={32}
+                  height={32}
+                  src={`https://avatars.dicebear.com/api/adventurer-neutral/${iconSeed}.svg`}
                   alt="Lucky Icon"
                   title="Lucky Icon"
                   className="hover:scale-110 active:scale-90 transition-transform duration-300"
@@ -160,11 +163,11 @@ const Header = ({ navBarTitle, fullWidth }) => {
             </a>
           </Link>
           {navBarTitle ? (
-            <p className="ml-2 font-medium text-day dark:text-night header-name">
+            <p className="ml-4 font-medium text-day dark:text-night header-name">
               {navBarTitle}
             </p>
           ) : (
-            <p className="ml-2 font-medium text-day dark:text-night header-name">
+            <p className="ml-4 font-medium text-day dark:text-night header-name">
               {BLOG.title},{" "}
               <span className="font-normal">{BLOG.description}</span>
             </p>

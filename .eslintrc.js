@@ -24,6 +24,7 @@ module.exports = {
     semi: "off",
     quotes: "off",
     "multiline-ternary": "off",
+    "space-before-function-paren": "off",
   },
   globals: {
     React: true,
