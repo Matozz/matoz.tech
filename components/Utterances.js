@@ -26,7 +26,7 @@ const Utterances = ({ issueTerm, layout }) => {
         id="comments"
         className={layout && layout === "fullWidth" ? "" : "md:-ml-16"}
       >
-        <div className="utterances-frame"></div>
+        {/* <div className="utterances-frame"></div> */}
       </div>
     </>
   );
