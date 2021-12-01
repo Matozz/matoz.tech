@@ -48,6 +48,14 @@ svg + .notion-page-title-text {
   line-height: 1.5rem;
 }
 
+.dark .notion-code {
+  background-color: rgb(220, 220, 220);
+}
+
+.dark .token.operator {
+  background-color: rgb(220, 220, 220);
+}
+
 .notion-code > code {
   @apply text-gray-900;
 }
@@ -111,4 +119,8 @@ pre[class*="language-"] {
 
 .dark .notion-table {
   --fg-color-1: rgb(60, 60, 60);
+}
+
+.notion-header-anchor {
+  top: -70px;
 }

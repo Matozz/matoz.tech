@@ -5,6 +5,7 @@ import Image from "next/image";
 import BLOG from "@/blog.config";
 import { useLocale } from "@/lib/locale";
 import { useTheme } from "@/lib/theme";
+import { useLayout } from "@/lib/layout";
 
 const NavBar = () => {
   const locale = useLocale();
@@ -114,6 +115,7 @@ const NavBar = () => {
 
 const Header = ({ navBarTitle, fullWidth }) => {
   const [iconSeed, setIconSeed] = useState(Date.now());
+  const { setLayout } = useLayout();
   const useSticky = !BLOG.autoCollapsedNavBar;
   const navRef = useRef(null);
   const sentinalRef = useRef([]);
@@ -129,6 +131,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
     }
   };
   useEffect(() => {
+    setLayout({ scrollTopRef: sentinalRef });
     const obvserver = new window.IntersectionObserver(handler);
     obvserver.observe(sentinalRef.current);
     // Don't touch this, I have no idea how it works XD

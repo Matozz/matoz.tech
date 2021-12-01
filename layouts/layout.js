@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/Container";
+import dynamic from "next/dynamic";
 import TagItem from "@/components/TagItem";
 import {
   NotionRenderer,
@@ -13,6 +14,10 @@ import formatDate from "@/lib/formatDate";
 import { useLocale } from "@/lib/locale";
 import { useRouter } from "next/router";
 import Comments from "@/components/Comments";
+import { useEffect, useRef, useState } from "react";
+
+const BackTop = dynamic(() => import("@/components/BackTop"), { ssr: false });
+const SideTOC = dynamic(() => import("@/components/SideTOC"), { ssr: false });
 
 const mapPageUrl = (id) => {
   return "https://www.notion.so/" + id.replace(/-/g, "");
@@ -27,6 +32,23 @@ const Layout = ({
 }) => {
   const locale = useLocale();
   const router = useRouter();
+  const [{ links, minLevel }, setLinks] = useState({ links: [], minLevel: 1 });
+  const [isBackingTop, setIsBackingTop] = useState(false);
+  const articleRef = useRef();
+
+  useEffect(() => {
+    const links = document.querySelectorAll(".notion-h");
+    const linksArr = Array.from(links).map(
+      ({ dataset, outerText, localName }) => ({
+        id: dataset.id,
+        title: outerText,
+        level: localName.substring(1),
+      })
+    );
+    const level = [...linksArr].sort((a, b) => a.level - b.level)[0].level;
+    setLinks({ links: linksArr, minLevel: level });
+  }, []);
+
   return (
     <Container
       layout="blog"
@@ -36,7 +58,7 @@ const Layout = ({
       type="article"
       fullWidth={fullWidth}
     >
-      <article>
+      <article ref={articleRef}>
         <h1 className="font-bold text-3xl text-black dark:text-white">
           {frontMatter.title}
         </h1>
@@ -104,6 +126,17 @@ const Layout = ({
           </button>
         </a>
       </div>
+      <BackTop
+        onBackingTop={() => setIsBackingTop(true)}
+        onBackedTop={() => setIsBackingTop(false)}
+      />
+      <SideTOC
+        links={links}
+        posRef={articleRef}
+        minLevel={minLevel}
+        pause={isBackingTop}
+        anchorName="notion-header-anchor"
+      />
       <Comments frontMatter={frontMatter} />
     </Container>
   );

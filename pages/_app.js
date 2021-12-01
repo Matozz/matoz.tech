@@ -7,6 +7,7 @@ import BLOG from "@/blog.config";
 import dynamic from "next/dynamic";
 import { LocaleProvider } from "@/lib/locale";
 import { ThemeProvider } from "@/lib/theme";
+import { LayoutProvider } from "@/lib/layout";
 import Scripts from "@/components/Scripts";
 
 const Ackee = dynamic(() => import("@/components/Ackee"), { ssr: false });
@@ -18,16 +19,18 @@ function MyApp({ Component, pageProps }) {
       <Scripts />
       <LocaleProvider>
         <ThemeProvider>
-          <>
-            {BLOG.isProd && BLOG?.analytics?.provider === "ackee" && (
-              <Ackee
-                ackeeServerUrl={BLOG.analytics.ackeeConfig.dataAckeeServer}
-                ackeeDomainId={BLOG.analytics.ackeeConfig.domainId}
-              />
-            )}
-            {BLOG.isProd && BLOG?.analytics?.provider === "ga" && <Gtag />}
-            <Component {...pageProps} />
-          </>
+          <LayoutProvider>
+            <>
+              {BLOG.isProd && BLOG?.analytics?.provider === "ackee" && (
+                <Ackee
+                  ackeeServerUrl={BLOG.analytics.ackeeConfig.dataAckeeServer}
+                  ackeeDomainId={BLOG.analytics.ackeeConfig.domainId}
+                />
+              )}
+              {BLOG.isProd && BLOG?.analytics?.provider === "ga" && <Gtag />}
+              <Component {...pageProps} />
+            </>
+          </LayoutProvider>
         </ThemeProvider>
       </LocaleProvider>
     </>

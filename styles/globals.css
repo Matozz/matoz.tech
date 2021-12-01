@@ -77,6 +77,15 @@ body::-webkit-scrollbar-thumb {
   border-bottom-color: transparent;
 }
 
+.back-top {
+  right: 1.5rem;
+  bottom: 1.5rem;
+  font-size: 1.25rem;
+  backdrop-filter: blur(5px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0, 1);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 8px 0px;
+}
+
 .remove-sticky {
   position: unset;
 }
@@ -116,6 +125,61 @@ nav {
   -ms-user-select: none;
   -khtml-user-select: none;
   user-select: none;
+}
+
+.toc {
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0, 1);
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0 8px;
+  margin: 0;
+}
+
+.toc li {
+  position: relative;
+  line-height: 1.5;
+  font-size: var(--link-font-size);
+  min-height: 1.5em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+  padding: 2px 8px;
+  width: fit-content;
+  font-size: 13px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.toc li a {
+  display: inline-block;
+  color: #aaa;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  @apply dark:hover:text-white;
+}
+
+.toc li a:hover {
+  color: rgb(75, 85, 99);
+}
+
+.dark .toc li a:hover {
+  color: rgb(209, 213, 219);
+}
+
+.toc li.active-anchor-link {
+  @apply bg-gray-200 text-black dark:bg-gray-700;
+  border-radius: 4px;
+}
+
+.toc li.active-anchor-link > a {
+  color: rgb(75, 85, 99);
+}
+
+.dark .toc li.active-anchor-link > a {
+  color: rgb(209, 213, 219);
 }
 
 @media (min-width: 768px) {
