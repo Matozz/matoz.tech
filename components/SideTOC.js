@@ -6,7 +6,7 @@ const SideTOC = ({
   posRef,
   anchorName,
   minLevel,
-  visibleHeight = 50,
+  visibleHeight = 48,
   pause,
 }) => {
   const [show, setShow] = useState(false);
@@ -27,16 +27,16 @@ const SideTOC = ({
   useEffect(() => {
     if (pause) return;
     const Links = [];
-    for (let i = 0; i < links.length; i++) {
-      if (links[i].id === activeLink) Links.push({ ...links[i], active: true });
-      else Links.push({ ...links[i], active: false });
+    for (let i = 0; i < _links.length; i++) {
+      if (_links[i].id === activeLink) {
+        Links.push({ ..._links[i], active: true });
+      } else Links.push({ ..._links[i], active: false });
     }
     setLinks(Links);
 
     const active =
       document.getElementById(`link-${activeLink}`)?.offsetTop + 40;
 
-    console.log(tocRef);
     tocRef.current &&
       tocRef.current.scrollTo({ top: active - 100, behavior: "smooth" });
   }, [activeLink]);
@@ -70,9 +70,13 @@ const SideTOC = ({
     <nav
       ref={tocRef}
       className={`toc fixed top-24 bottom-8 overflow-y-auto border-gray-300 dark:border-gray-700 opacity-0 scale-0 lg:opacity-100 lg:scale-100 ${
-        show ? "scale-100" : "lg:scale-0"
+        show ? "scale-100" : "lg:scale-0 lg:opacity-0"
       }`}
-      style={{ left: anchor + 40 + "px", width: "100%" }}
+      style={{
+        left: anchor + 40 + "px",
+        width: "100%",
+        transformOrigin: "0 0",
+      }}
     >
       <ul
         className="border-gray-300 dark:border-gray-700"
