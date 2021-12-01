@@ -130,13 +130,15 @@ const Layout = ({
         onBackingTop={() => setIsBackingTop(true)}
         onBackedTop={() => setIsBackingTop(false)}
       />
-      <SideTOC
-        links={links}
-        posRef={articleRef}
-        minLevel={minLevel}
-        pause={isBackingTop}
-        anchorName="notion-header-anchor"
-      />
+      {frontMatter.slug !== "about" && (
+        <SideTOC
+          links={links}
+          posRef={articleRef}
+          minLevel={minLevel}
+          pause={isBackingTop}
+          anchorName="notion-header-anchor"
+        />
+      )}
       <Comments frontMatter={frontMatter} />
     </Container>
   );
