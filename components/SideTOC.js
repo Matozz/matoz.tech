@@ -39,7 +39,7 @@ const SideTOC = ({
 
     tocRef.current &&
       tocRef.current.scrollTo({ top: active - 100, behavior: "smooth" });
-  }, [activeLink]);
+  }, [activeLink, pause]);
 
   const handleScrollDirection = () => {
     setActiveLink(getActiveLinkID());
