@@ -45,7 +45,8 @@ const Layout = ({
         level: localName.substring(1),
       })
     );
-    const level = [...linksArr].sort((a, b) => a.level - b.level)[0].level;
+    const level =
+      [...linksArr].sort((a, b) => a.level - b.level)[0]?.level ?? 2;
     setLinks({ links: linksArr, minLevel: level });
   }, []);
 
