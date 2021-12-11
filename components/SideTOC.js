@@ -26,13 +26,15 @@ const SideTOC = ({
 
   useEffect(() => {
     if (pause) return;
-    const Links = [];
-    for (let i = 0; i < _links.length; i++) {
-      if (_links[i].id === activeLink) {
-        Links.push({ ..._links[i], active: true });
-      } else Links.push({ ..._links[i], active: false });
-    }
-    setLinks(Links);
+
+    setLinks(
+      _links.reduce((prev, curr) => {
+        if (curr.id === activeLink) {
+          prev.push({ ...curr, active: true });
+        } else prev.push({ ...curr, active: false });
+        return prev;
+      }, [])
+    );
 
     const active =
       document.getElementById(`link-${activeLink}`)?.offsetTop + 40;
