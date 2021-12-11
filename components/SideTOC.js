@@ -71,19 +71,14 @@ const SideTOC = ({
   return ReactDOM.createPortal(
     <nav
       ref={tocRef}
-      className={`toc fixed top-24 bottom-8 overflow-y-auto border-gray-300 dark:border-gray-700 opacity-0 scale-0 lg:opacity-100 lg:scale-100 ${
+      className={`toc fixed top-24 bottom-8 w-[100%] origin-[0_0] overflow-y-auto border-gray-300 dark:border-gray-700 opacity-0 scale-0 lg:opacity-100 lg:scale-100 ${
         show ? "scale-100" : "lg:scale-0 lg:opacity-0"
       }`}
       style={{
         left: anchor + 40 + "px",
-        width: "100%",
-        transformOrigin: "0 0",
       }}
     >
-      <ul
-        className="border-gray-300 dark:border-gray-700"
-        style={{ borderLeftWidth: 1 }}
-      >
+      <ul className="border-gray-300 dark:border-gray-700 border-l-[1px]">
         {links.map(({ id, title, level, active }) => (
           <li
             key={id}

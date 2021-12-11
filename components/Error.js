@@ -9,10 +9,7 @@ const Error = ({ errCode, title }) => {
         </title>
       </Head>
       <div className="absolute inset-0 flex items-center justify-center">
-        <h1
-          className="inline-block border-black dark:text-gray-200 dark:border-gray-200 text-2xl pr-6 py-2"
-          style={{ borderRightWidth: 1 }}
-        >
+        <h1 className="inline-block border-black border-r-[1px] dark:text-gray-200 dark:border-gray-200 text-2xl pr-6 py-2">
           {errCode}
         </h1>
         <div className="inline-block text-left ml-6">
