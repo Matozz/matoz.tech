@@ -45,7 +45,7 @@ svg + .notion-page-title-text {
 
 .notion-code {
   padding: 10px 16px 10px 16px;
-  line-height: 1.5rem;
+  line-height: 1.5rem !important;
 }
 
 .dark .notion-code {
