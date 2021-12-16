@@ -44,12 +44,16 @@ svg + .notion-page-title-text {
 }
 
 .notion-code {
-  padding: 10px 16px 10px 16px;
+  padding: 10px 16px 10px 16px !important;
   line-height: 1.5rem !important;
 }
 
 .dark .notion-code {
   background-color: rgb(220, 220, 220);
+}
+
+.token.operator {
+  background-color: transparent;
 }
 
 .dark .token.operator {
