@@ -162,7 +162,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
                   src={`https://avatars.dicebear.com/api/adventurer-neutral/${iconSeed}.svg`}
                   alt="Lucky Icon"
                   title="Lucky Icon"
-                  className="hover:scale-110 active:scale-90 transition-transform duration-300"
+                  className="hover:scale-110 active:scale-90 transition-transform duration-300 cursor-pointer"
                 />
               </div>
             </a>
