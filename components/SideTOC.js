@@ -95,4 +95,4 @@ const SideTOC = ({
   );
 };
 
-export default SideTOC;
+export default React.memo(SideTOC);

@@ -56,4 +56,4 @@ const BackTop = ({ visibleHeight = 240, onBackingTop, onBackedTop }) => {
   );
 };
 
-export default BackTop;
+export default React.memo(BackTop);
