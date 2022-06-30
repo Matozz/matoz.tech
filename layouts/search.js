@@ -3,8 +3,10 @@ import BlogPost from "@/components/BlogPost";
 import Container from "@/components/Container";
 import Tags from "@/components/Tags";
 import PropTypes from "prop-types";
+import { useLocale } from "@/lib/locale";
 
 const SearchLayout = ({ tags, posts, currentTag }) => {
+  const locale = useLocale();
   const [searchValue, setSearchValue] = useState("");
   let filteredBlogPosts = [];
   if (posts) {
@@ -21,7 +23,7 @@ const SearchLayout = ({ tags, posts, currentTag }) => {
         <input
           type="text"
           placeholder={
-            currentTag ? `Search in #${currentTag}` : "Search Articles"
+            currentTag ? locale.SEARCH.IN(currentTag) : locale.SEARCH.ALL
           }
           className="block w-full border px-4 py-2 border-gray-300 bg-white text-black dark:bg-night dark:border-gray-600 dark:text-gray-100 rounded"
           onChange={(e) => setSearchValue(e.target.value)}

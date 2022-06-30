@@ -10,10 +10,14 @@ const BlogPost = ({ post }) => {
           key={post.id}
           className="mb-6 lg:p-4 md:p-4 sm:p-0 rounded-lg lg:hover:bg-gray-200 lg:hover:bg-opacity-40 lg:dark:hover:bg-gray-800 lg:dark:hover:bg-opacity-50 md:hover:bg-gray-200 md:hover:bg-opacity-40 md:dark:hover:bg-gray-800 md:dark:hover:bg-opacity-50 transition-colors duration-200"
         >
-          <header className="flex flex-col justify-between md:flex-row md:items-baseline">
-            <h2 className="text-lg md:text-xl font-medium mb-2 cursor-pointer text-black dark:text-gray-100">
-              {post.title}
+          <header className="flex flex-col mb-2 justify-between md:flex-row md:items-center">
+            <h2 className="text-lg md:text-xl font-medium cursor-pointer text-black flex-1 pr-2 dark:text-gray-100">
+              <text className="mr-2">{post.title}</text>
+              <text className="inline-block translate-y-[-0.1rem] px-1 align-middle rounded text-gray-500 text-sm font-normal w-fit border dark:border-gray-600 dark:text-gray-400">
+                {post.lang}
+              </text>
             </h2>
+
             <time className="flex-shrink-0 text-gray-600 dark:text-gray-400">
               {formatDate(
                 post?.date?.start_date || post.createdTime,

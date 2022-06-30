@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
@@ -13,9 +13,11 @@ const NavBar = () => {
 
   const links = [
     { id: 0, name: locale.NAV.INDEX, to: BLOG.path || "/", show: true },
-    { id: 1, name: locale.NAV.ABOUT, to: "/about", show: BLOG.showAbout },
-    { id: 2, name: locale.NAV.RSS, to: "/feed", show: true },
-    { id: 3, name: locale.NAV.SEARCH, to: "/search", show: true },
+    { id: 1, name: locale.NAV.PROJECT, to: "/project", show: BLOG.showAbout },
+    { id: 2, name: locale.NAV.LEARN, to: "/learn", show: BLOG.showLearn },
+    { id: 3, name: locale.NAV.ABOUT, to: "/about", show: BLOG.showAbout },
+    { id: 4, name: locale.NAV.RSS, to: "/feed", show: true },
+    { id: 5, name: locale.NAV.SEARCH, to: "/search", show: true },
   ];
 
   useEffect(() => {
@@ -114,7 +116,6 @@ const NavBar = () => {
 };
 
 const Header = ({ navBarTitle, fullWidth }) => {
-  const [iconSeed, setIconSeed] = useState(Date.now());
   const { setLayout } = useLayout();
   const useSticky = !BLOG.autoCollapsedNavBar;
   const navRef = useRef(null);
@@ -156,10 +157,9 @@ const Header = ({ navBarTitle, fullWidth }) => {
             <a aria-label={BLOG.title}>
               <div className="flex">
                 <Image
-                  onClick={() => setIconSeed(Date.now())}
                   width={32}
                   height={32}
-                  src={`https://avatars.dicebear.com/api/adventurer-neutral/${iconSeed}.svg`}
+                  src={`https://i0.hdslb.com/bfs/baselabs/60025fcd788afd49a3e08d680caed60be908d5bd.jpg`}
                   alt="Lucky Icon"
                   title="Lucky Icon"
                   className="hover:scale-110 active:scale-90 transition-transform duration-300 cursor-pointer"

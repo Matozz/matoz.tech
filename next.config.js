@@ -1,7 +1,11 @@
 module.exports = {
   webpack5: true,
   images: {
-    domains: ["avatars.githubusercontent.com", "avatars.dicebear.com"],
+    domains: [
+      "avatars.githubusercontent.com",
+      "avatars.dicebear.com",
+      "i0.hdslb.com",
+    ],
   },
   eslint: {
     dirs: ["components", "layouts", "lib", "pages"],

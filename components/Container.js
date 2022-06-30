@@ -3,15 +3,19 @@ import Footer from "@/components/Footer";
 import BLOG from "@/blog.config";
 import Head from "next/head";
 import PropTypes from "prop-types";
+import dynamic from "next/dynamic";
 // import BlogPost from './BlogPost'
 
-const Container = ({ children, layout, fullWidth, ...customMeta }) => {
+const SideTOC = dynamic(() => import("@/components/SideTOC"), { ssr: false });
+
+const Container = ({ children, layout, fullWidth, toc, ...customMeta }) => {
   const url = BLOG.path.length ? `${BLOG.link}/${BLOG.path}` : BLOG.link;
   const meta = {
     title: BLOG.title,
     type: "website",
     ...customMeta,
   };
+
   return (
     <div>
       <Head>
@@ -71,13 +75,25 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
           navBarTitle={layout === "blog" ? meta.title : null}
           fullWidth={fullWidth}
         />
-        <main
-          className={`relative m-auto flex-grow w-full transition-all ${
-            !fullWidth ? "max-w-2xl px-4" : "px-4 md:px-24"
-          }`}
-        >
-          {children}
-        </main>
+        <div className="flex flex-1">
+          <div className="flex-1"></div>
+          <main
+            className={`relative m-auto flex-grow w-full lg:w-auto transition-all ${
+              !fullWidth ? "max-w-2xl px-4" : "px-4 md:px-24"
+            }`}
+          >
+            {children}
+          </main>
+          <div className="flex-1">
+            {toc?.links?.length > 0 && (
+              <SideTOC
+                links={toc.links}
+                minLevel={toc.minLevel}
+                anchorName="notion-header-anchor"
+              />
+            )}
+          </div>
+        </div>
         <Footer fullWidth={fullWidth} />
       </div>
     </div>

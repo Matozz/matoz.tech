@@ -17,7 +17,6 @@ import Comments from "@/components/Comments";
 import { useEffect, useRef, useState } from "react";
 
 const BackTop = dynamic(() => import("@/components/BackTop"), { ssr: false });
-const SideTOC = dynamic(() => import("@/components/SideTOC"), { ssr: false });
 
 const mapPageUrl = (id) => {
   return "https://www.notion.so/" + id.replace(/-/g, "");
@@ -33,7 +32,6 @@ const Layout = ({
   const locale = useLocale();
   const router = useRouter();
   const [{ links, minLevel }, setLinks] = useState({ links: [], minLevel: 1 });
-  const [isBackingTop, setIsBackingTop] = useState(false);
   const articleRef = useRef();
 
   useEffect(() => {
@@ -57,11 +55,22 @@ const Layout = ({
       description={frontMatter.summary}
       // date={new Date(frontMatter.publishedAt).toISOString()}
       type="article"
+      toc={
+        frontMatter.slug !== "about"
+          ? {
+              links: links,
+              minLevel: minLevel,
+            }
+          : {}
+      }
       fullWidth={fullWidth}
     >
       <article ref={articleRef}>
         <h1 className="font-bold text-3xl text-black dark:text-white">
-          {frontMatter.title}
+          <text className="mr-2">{frontMatter.title}</text>
+          <text className="inline-block translate-y-[-0.1rem] px-1 align-middle rounded text-gray-500 text-sm font-normal w-fit border dark:border-gray-600 dark:text-gray-400">
+            {frontMatter.lang}
+          </text>
         </h1>
         {frontMatter.type[0] !== "Page" && (
           <nav className="flex mt-7 items-start text-gray-500 dark:text-gray-400">
@@ -78,7 +87,7 @@ const Layout = ({
               </a>
               <span className="block">&nbsp;/&nbsp;</span>
             </div>
-            <div className="mr-2 mb-4 md:ml-0">
+            <div className="mr-2  md:ml-0">
               {formatDate(
                 frontMatter?.date?.start_date || frontMatter.createdTime,
                 BLOG.lang
@@ -127,19 +136,8 @@ const Layout = ({
           </button>
         </a>
       </div>
-      <BackTop
-        onBackingTop={() => setIsBackingTop(true)}
-        onBackedTop={() => setIsBackingTop(false)}
-      />
-      {frontMatter.slug !== "about" && (
-        <SideTOC
-          links={links}
-          posRef={articleRef}
-          minLevel={minLevel}
-          pause={isBackingTop}
-          anchorName="notion-header-anchor"
-        />
-      )}
+      <BackTop />
+
       <Comments frontMatter={frontMatter} />
     </Container>
   );
