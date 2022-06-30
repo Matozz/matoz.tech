@@ -31,7 +31,7 @@
 .gg-moon {
   overflow: hidden;
   position: relative;
-  transform: rotate(-135deg) scale(var(--ggs, 1));
+  transform: rotate(-135deg) scale(var(--ggs, 0.9));
   width: 20px;
   height: 20px;
   border: 2px solid;
@@ -53,7 +53,7 @@
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs, 1));
+  transform: scale(var(--ggs, 0.9));
   width: 24px;
   height: 24px;
   background: linear-gradient(to bottom, currentColor 4px, transparent 0)
@@ -92,17 +92,23 @@
 }
 
 .gg-home {
+  background: linear-gradient(to left, currentColor 5px, transparent 0)
+      no-repeat 0 bottom/4px 2px,
+    linear-gradient(to left, currentColor 5px, transparent 0) no-repeat right
+      bottom/4px 2px;
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs, 1));
+  transform: scale(var(--ggs, 0.95));
   width: 18px;
   height: 14px;
   border: 2px solid;
   border-top: 0;
-  border-radius: 2px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-bottom: 0;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
   margin-bottom: -4px;
 }
 
@@ -127,13 +133,15 @@
 }
 
 .gg-home::after {
-  width: 6px;
+  width: 8px;
   height: 10px;
-  background: currentColor;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  left: 4px;
-  bottom: -2px;
+  border: 2px solid;
+  border-radius: 100px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 0;
+  left: 3px;
+  bottom: 0;
 }
 
 .gg-code-slash {

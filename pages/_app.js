@@ -10,9 +10,17 @@ import { LocaleProvider } from "@/lib/locale";
 import { ThemeProvider } from "@/lib/theme";
 import { LayoutProvider } from "@/lib/layout";
 import Scripts from "@/components/Scripts";
+import { Router } from "next/router";
+import NProgress from "nprogress";
+import "@/styles/progress.css";
 
 const Ackee = dynamic(() => import("@/components/Ackee"), { ssr: false });
 const Gtag = dynamic(() => import("@/components/Gtag"), { ssr: false });
+
+NProgress.configure({ showSpinner: false });
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
   return (

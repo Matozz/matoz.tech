@@ -127,7 +127,7 @@ const NavBar = () => {
                   aria-label={link.name}
                   title={link.name}
                   type="button"
-                  className="w-8 h-8 p-1 rounded sm:ml-4 hover:scale-110 active:scale-90 flex items-center justify-center transition-transform duration-200 lg:hidden"
+                  className="w-8 h-8 p-1 ml-2 rounded sm:ml-4 hover:scale-110 active:scale-90 flex items-center justify-center transition-transform duration-200 lg:hidden"
                   onClick={() => router.push(link.to)}
                 >
                   <div

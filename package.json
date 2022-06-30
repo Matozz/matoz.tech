@@ -26,6 +26,7 @@
     "next": "^12.0.3",
     "notion-client": "^4.10.0",
     "notion-utils": "^4.10.0",
+    "nprogress": "^0.2.0",
     "preact": "^10.5.15",
     "react": "^17.0.2",
     "react-cusdis": "^2.0.1",
