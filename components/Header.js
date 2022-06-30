@@ -6,18 +6,50 @@ import BLOG from "@/blog.config";
 import { useLocale } from "@/lib/locale";
 import { useTheme } from "@/lib/theme";
 import { useLayout } from "@/lib/layout";
+import { useRouter } from "next/router";
 
 const NavBar = () => {
   const locale = useLocale();
+  const router = useRouter();
   const { theme, setTheme } = useTheme();
 
   const links = [
-    { id: 0, name: locale.NAV.INDEX, to: BLOG.path || "/", show: true },
-    { id: 1, name: locale.NAV.PROJECT, to: "/project", show: BLOG.showAbout },
-    { id: 2, name: locale.NAV.LEARN, to: "/learn", show: BLOG.showLearn },
-    { id: 3, name: locale.NAV.ABOUT, to: "/about", show: BLOG.showAbout },
-    { id: 4, name: locale.NAV.RSS, to: "/feed", show: true },
-    { id: 5, name: locale.NAV.SEARCH, to: "/search", show: true },
+    {
+      id: 0,
+      name: locale.NAV.INDEX,
+      to: BLOG.path || "/",
+      show: true,
+      icon: "home",
+    },
+    {
+      id: 1,
+      name: locale.NAV.PROJECT,
+      to: "/project",
+      show: BLOG.showAbout,
+      icon: "code-slash",
+    },
+    {
+      id: 2,
+      name: locale.NAV.LEARN,
+      to: "/learn",
+      show: BLOG.showLearn,
+      icon: "menu-boxed",
+    },
+    {
+      id: 3,
+      name: locale.NAV.ABOUT,
+      to: "/about",
+      show: BLOG.showAbout,
+      icon: "user",
+    },
+    { id: 4, name: locale.NAV.RSS, to: "/feed", show: true, icon: "data" },
+    {
+      id: 5,
+      name: locale.NAV.SEARCH,
+      to: "/search",
+      show: true,
+      icon: "search",
+    },
   ];
 
   useEffect(() => {
@@ -69,45 +101,40 @@ const NavBar = () => {
       <button
         aria-label="Toggle Dark Mode"
         type="button"
-        className="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4 hover:scale-110 active:scale-90 transition-transform duration-200"
+        className="w-8 h-8 p-1 ml-1 rounded sm:ml-4 hover:scale-110 active:scale-90 transition-transform duration-200"
         onClick={() => toggleTheme(theme)}
       >
         {theme === "light" ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="text-gray-900 dark:text-gray-100"
-          >
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
+          <div className="gg-moon text-gray-500 dark:text-gray-300" />
         ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="text-gray-900 dark:text-gray-100"
-          >
-            <path
-              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-              fillRule="evenodd"
-              clipRule="evenodd"
-            ></path>
-          </svg>
+          <div className="gg-sun text-gray-500 dark:text-gray-300" />
         )}
       </button>
       <ul className="flex flex-row">
         {links.map(
           (link) =>
             link.show && (
-              <li
-                key={link.id}
-                className="flex items-center ml-4 text-black dark:text-gray-50 nav"
-              >
-                <Link href={link.to}>
-                  <a>{link.name}</a>
-                </Link>
-              </li>
+              <>
+                <li
+                  key={link.id}
+                  className="items-center ml-4 text-gray-600 dark:text-gray-200 nav hidden lg:flex"
+                >
+                  <Link href={link.to}>
+                    <a>{link.name}</a>
+                  </Link>
+                </li>
+                <button
+                  aria-label={link.name}
+                  title={link.name}
+                  type="button"
+                  className="w-8 h-8 p-1 rounded sm:ml-4 hover:scale-110 active:scale-90 flex items-center justify-center transition-transform duration-200 lg:hidden"
+                  onClick={() => router.push(link.to)}
+                >
+                  <div
+                    className={`gg-${link.icon} text-gray-500 dark:text-gray-300`}
+                  />
+                </button>
+              </>
             )
         )}
       </ul>

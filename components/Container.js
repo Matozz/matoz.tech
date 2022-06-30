@@ -78,7 +78,7 @@ const Container = ({ children, layout, fullWidth, toc, ...customMeta }) => {
         <div className="flex flex-1">
           <div className="flex-1"></div>
           <main
-            className={`relative m-auto flex-grow w-full lg:w-auto transition-all ${
+            className={`relative ml-auto mr-auto flex-grow w-full lg:w-auto transition-all ${
               !fullWidth ? "max-w-2xl px-4" : "px-4 md:px-24"
             }`}
           >
