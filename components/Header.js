@@ -7,6 +7,14 @@ import { useLocale } from "@/lib/locale";
 import { useTheme } from "@/lib/theme";
 import { useLayout } from "@/lib/layout";
 import { useRouter } from "next/router";
+import CharmHome from "@/lib/icon/CharmHome";
+import CharmStack from "@/lib/icon/CharmStack";
+import CharmBook from "@/lib/icon/CharmBook";
+import CharmPerson from "@/lib/icon/CharmPerson";
+import CharmCast from "@/lib/icon/CharmCast";
+import CharmSearch from "@/lib/icon/CharmSearch";
+import CharmMoon from "@/lib/icon/CharmMoon";
+import CharmSun from "@/lib/icon/CharmSun";
 
 const NavBar = () => {
   const locale = useLocale();
@@ -19,36 +27,42 @@ const NavBar = () => {
       name: locale.NAV.INDEX,
       to: BLOG.path || "/",
       show: true,
-      icon: "home",
+      icon: <CharmHome />,
     },
     {
       id: 1,
       name: locale.NAV.PROJECT,
       to: "/project",
       show: true,
-      icon: "code-slash",
+      icon: <CharmStack />,
     },
     {
       id: 2,
       name: locale.NAV.LEARN,
       to: "/learn",
       show: BLOG.showLearn,
-      icon: "menu-boxed",
+      icon: <CharmBook />,
     },
     {
       id: 3,
       name: locale.NAV.ABOUT,
       to: "/about",
       show: BLOG.showAbout,
-      icon: "user",
+      icon: <CharmPerson />,
     },
-    { id: 4, name: locale.NAV.RSS, to: "/feed", show: true, icon: "data" },
+    {
+      id: 4,
+      name: locale.NAV.RSS,
+      to: "/feed",
+      show: true,
+      icon: <CharmCast />,
+    },
     {
       id: 5,
       name: locale.NAV.SEARCH,
       to: "/search",
       show: true,
-      icon: "search",
+      icon: <CharmSearch />,
     },
   ];
 
@@ -104,11 +118,7 @@ const NavBar = () => {
         className="w-8 h-8 p-1 ml-1 rounded sm:ml-4 hover:scale-110 active:scale-90 transition-transform duration-200"
         onClick={() => toggleTheme(theme)}
       >
-        {theme === "light" ? (
-          <div className="gg-moon text-gray-500 dark:text-gray-300" />
-        ) : (
-          <div className="gg-sun text-gray-500 dark:text-gray-300" />
-        )}
+        {theme === "light" ? <CharmMoon /> : <CharmSun />}
       </button>
       <ul className="flex flex-row">
         {links.map(
@@ -127,9 +137,7 @@ const NavBar = () => {
                   className="w-8 h-8 p-1 ml-1 rounded sm:ml-4 hover:scale-110 active:scale-90 flex items-center justify-center transition-transform duration-200 lg:hidden"
                   onClick={() => router.push(link.to)}
                 >
-                  <div
-                    className={`gg-${link.icon} text-gray-500 dark:text-gray-300`}
-                  />
+                  {link.icon}
                 </button>
               </div>
             )
