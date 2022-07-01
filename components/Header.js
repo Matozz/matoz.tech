@@ -25,7 +25,7 @@ const NavBar = () => {
       id: 1,
       name: locale.NAV.PROJECT,
       to: "/project",
-      show: BLOG.showAbout,
+      show: true,
       icon: "code-slash",
     },
     {
@@ -114,11 +114,8 @@ const NavBar = () => {
         {links.map(
           (link) =>
             link.show && (
-              <>
-                <li
-                  key={link.id}
-                  className="items-center ml-4 text-gray-600 dark:text-gray-200 nav hidden lg:flex"
-                >
+              <div key={link.id}>
+                <li className="items-center ml-4 text-gray-600 dark:text-gray-200 nav hidden lg:flex">
                   <Link href={link.to}>
                     <a>{link.name}</a>
                   </Link>
@@ -127,14 +124,14 @@ const NavBar = () => {
                   aria-label={link.name}
                   title={link.name}
                   type="button"
-                  className="w-8 h-8 p-1 ml-2 rounded sm:ml-4 hover:scale-110 active:scale-90 flex items-center justify-center transition-transform duration-200 lg:hidden"
+                  className="w-8 h-8 p-1 ml-1 rounded sm:ml-4 hover:scale-110 active:scale-90 flex items-center justify-center transition-transform duration-200 lg:hidden"
                   onClick={() => router.push(link.to)}
                 >
                   <div
                     className={`gg-${link.icon} text-gray-500 dark:text-gray-300`}
                   />
                 </button>
-              </>
+              </div>
             )
         )}
       </ul>

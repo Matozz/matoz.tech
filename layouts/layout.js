@@ -16,7 +16,9 @@ import { useRouter } from "next/router";
 import Comments from "@/components/Comments";
 import { useEffect, useRef, useState } from "react";
 
-const BackTop = dynamic(() => import("@/components/BackTop"), { ssr: false });
+const BackTopBtn = dynamic(() => import("@/components/BackTopBtn"), {
+  ssr: false,
+});
 
 const mapPageUrl = (id) => {
   return "https://www.notion.so/" + id.replace(/-/g, "");
@@ -136,7 +138,7 @@ const Layout = ({
           </button>
         </a>
       </div>
-      <BackTop />
+      <BackTopBtn />
 
       <Comments frontMatter={frontMatter} />
     </Container>

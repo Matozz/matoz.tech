@@ -182,6 +182,11 @@ nav {
   color: rgb(209, 213, 219);
 }
 
+.cover-wrapper > span {
+  position: absolute !important;
+  inset: 0;
+}
+
 @media (min-width: 768px) {
   .sticky-nav-full {
     @apply max-w-full border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;

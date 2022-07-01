@@ -2,6 +2,7 @@ module.exports = {
   webpack5: true,
   images: {
     domains: [
+      "images.unsplash.com",
       "avatars.githubusercontent.com",
       "avatars.dicebear.com",
       "i0.hdslb.com",
