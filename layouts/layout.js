@@ -2,13 +2,10 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import dynamic from "next/dynamic";
 import TagItem from "@/components/TagItem";
-import {
-  NotionRenderer,
-  Equation,
-  Code,
-  Collection,
-  CollectionRow,
-} from "react-notion-x";
+import { NotionRenderer } from "react-notion-x";
+import { Code } from "react-notion-x/build/third-party/code";
+import { Collection } from "react-notion-x/build/third-party/collection";
+import { Equation } from "react-notion-x/build/third-party/equation";
 import BLOG from "@/blog.config";
 import formatDate from "@/lib/formatDate";
 import { useLocale } from "@/lib/locale";
@@ -110,10 +107,9 @@ const Layout = ({
             <NotionRenderer
               recordMap={blockMap}
               components={{
-                equation: Equation,
-                code: Code,
-                collection: Collection,
-                collectionRow: CollectionRow,
+                Equation,
+                Code,
+                Collection,
               }}
               mapPageUrl={mapPageUrl}
             />
