@@ -13,9 +13,11 @@ const BlogPost = ({ post }) => {
           <header className="flex flex-col mb-2 justify-between md:flex-row md:items-center">
             <h2 className="text-lg md:text-xl font-medium cursor-pointer text-black flex-1 pr-2 dark:text-gray-100">
               <span className="mr-2">{post.title}</span>
-              <span className="inline-block translate-y-[-0.1rem] px-1 align-middle rounded text-gray-500 text-sm font-normal w-fit border dark:border-gray-600 dark:text-gray-400">
-                {post.lang}
-              </span>
+              {post.lang && (
+                <span className="inline-block translate-y-[-0.1rem] px-1 align-middle rounded text-gray-500 text-sm font-normal w-fit border dark:border-gray-600 dark:text-gray-400">
+                  {post.lang}
+                </span>
+              )}
             </h2>
 
             <time className="flex-shrink-0 text-gray-600 dark:text-gray-400">

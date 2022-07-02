@@ -67,9 +67,11 @@ const Layout = ({
       <article ref={articleRef}>
         <h1 className="font-bold text-3xl text-black dark:text-white">
           <span className="mr-2">{frontMatter.title}</span>
-          <span className="inline-block translate-y-[-0.1rem] px-1 align-middle rounded text-gray-500 text-sm font-normal w-fit border dark:border-gray-600 dark:text-gray-400">
-            {frontMatter.lang}
-          </span>
+          {frontMatter.lang && (
+            <span className="inline-block translate-y-[-0.1rem] px-1 align-middle rounded text-gray-500 text-sm font-normal w-fit border dark:border-gray-600 dark:text-gray-400">
+              {frontMatter.lang}
+            </span>
+          )}
         </h1>
         {frontMatter.type[0] !== "Page" && (
           <nav className="flex mt-7 items-start text-gray-500 dark:text-gray-400">
