@@ -187,6 +187,10 @@ nav {
   inset: 0;
 }
 
+audio::-webkit-media-controls-panel {
+  background-color: transparent !important;
+}
+
 @media (min-width: 768px) {
   .sticky-nav-full {
     @apply max-w-full border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;

@@ -15,7 +15,7 @@ const BLOG = {
   sortByDate: true,
   showAbout: true,
   showProject: true,
-  showLearn: true,
+  showMusic: true,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
   ogImageGenerateURL: "https://og-image-craigary.vercel.app", // The link to generate OG image, don't end with a slash
   socialLink: "https://github.com/Matozz",
@@ -25,6 +25,7 @@ const BLOG = {
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
   notionProjectPageId: process.env.NOTION_PROJECT_PAGE_ID, // DO NOT CHANGE THIS！！！
+  notionMusicPageId: process.env.NOTION_MUSIC_PAGE_ID, // DO NOT CHANGE THIS！！！
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN, // Useful if you prefer not to make your database public
   analytics: {
     provider: "", // Currently we support Google Analytics and Ackee, please fill with 'ga' or 'ackee', leave it empty to disable it.

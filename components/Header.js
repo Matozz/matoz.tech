@@ -9,12 +9,12 @@ import { useLayout } from "@/lib/layout";
 import { useRouter } from "next/router";
 import CharmHome from "@/lib/icon/CharmHome";
 import CharmStack from "@/lib/icon/CharmStack";
-import CharmBook from "@/lib/icon/CharmBook";
 import CharmPerson from "@/lib/icon/CharmPerson";
 import CharmCast from "@/lib/icon/CharmCast";
 import CharmSearch from "@/lib/icon/CharmSearch";
 import CharmMoon from "@/lib/icon/CharmMoon";
 import CharmSun from "@/lib/icon/CharmSun";
+import CharmMusic from "@/lib/icon/CharmMusic";
 
 const NavBar = () => {
   const locale = useLocale();
@@ -38,10 +38,10 @@ const NavBar = () => {
     },
     {
       id: 2,
-      name: locale.NAV.LEARN,
-      to: "/learn",
-      show: BLOG.showLearn,
-      icon: <CharmBook />,
+      name: locale.NAV.MUSIC,
+      to: "/music",
+      show: BLOG.showMusic,
+      icon: <CharmMusic />,
     },
     {
       id: 3,

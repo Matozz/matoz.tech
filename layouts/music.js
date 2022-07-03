@@ -1,21 +1,21 @@
 import Container from "@/components/Container";
-import ProjectCard from "@/components/ProjectCard";
+import MusicCard from "@/components/MusicCard";
 import React from "react";
 
-const ProjectLayout = ({ projects = [] }) => {
+const MusicLayout = ({ musics = [] }) => {
   return (
     <Container>
       <div className="relative flex flex-wrap -mx-4">
-        {projects
+        {musics
           .sort((a, b) => parseInt(a.order) - parseInt(b.order))
-          .map((project) => (
-            <ProjectCard key={project.id} {...project} />
+          .map((music) => (
+            <MusicCard key={music.id} {...music} />
           ))}
       </div>
     </Container>
   );
 };
 
-ProjectLayout.propTypes = {};
+MusicLayout.propTypes = {};
 
-export default ProjectLayout;
+export default MusicLayout;

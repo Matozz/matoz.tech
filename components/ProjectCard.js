@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectCard = ({ name, description, source, website, tags }) => {
   return (
-    <div className="w-full sm:w-1/2 p-4 rounded-lg lg:hover:bg-gray-200 lg:hover:bg-opacity-40 lg:dark:hover:bg-gray-800 lg:dark:hover:bg-opacity-50  transition-all">
+    <div className="w-full sm:w-1/2 p-4 rounded-lg md:hover:bg-gray-200 md:hover:bg-opacity-40 md:dark:hover:bg-gray-800 md:dark:hover:bg-opacity-50  transition-all">
       <div className="c-card block rounded-lg overflow-hidden">
         {/* <div className="cover-wrapper relative pb-48 overflow-hidden">
           <Image
