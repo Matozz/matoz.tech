@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 const MagnetBg = () => {
   const bgRef = useRef();
 
-  const isSupport = Boolean(CSS?.paintWorklet?.addModule);
+  const isSupport = Boolean(CSS.paintWorklet?.addModule);
 
   useEffect(() => {
     if (!isSupport) {
