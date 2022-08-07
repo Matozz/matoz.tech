@@ -17,7 +17,7 @@ const Container = ({ children, layout, fullWidth, toc, ...customMeta }) => {
     ...customMeta,
   };
 
-  const isSupportCssPaint = () => CSS.paintWorklet?.addModule;
+  const isSupportCssPaint = CSS.paintWorklet?.addModule;
 
   return (
     <div>
