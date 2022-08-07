@@ -17,8 +17,6 @@ const Container = ({ children, layout, fullWidth, toc, ...customMeta }) => {
     ...customMeta,
   };
 
-  const isSupportCssPaint = CSS.paintWorklet?.addModule;
-
   return (
     <div>
       <Head>
@@ -74,7 +72,7 @@ const Container = ({ children, layout, fullWidth, toc, ...customMeta }) => {
           BLOG.font === "serif" ? "font-serif" : "font-sans"
         }`}
       >
-        {!customMeta.type && isSupportCssPaint && <MagnetBg />}
+        {!customMeta.type && <MagnetBg />}
 
         <div className="absolute inset-0">
           <Header

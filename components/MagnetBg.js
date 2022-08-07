@@ -3,7 +3,13 @@ import React, { useEffect, useRef } from "react";
 const MagnetBg = () => {
   const bgRef = useRef();
 
+  const isSupport = Boolean(CSS.paintWorklet?.addModule);
+
   useEffect(() => {
+    if (!isSupport) {
+      return;
+    }
+
     const onMouseMove = (e) => {
       bgRef.current?.style.setProperty("--mouse-x", e.clientX);
       bgRef.current?.style.setProperty("--mouse-y", e.clientY);
@@ -67,9 +73,9 @@ const MagnetBg = () => {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseleave", onMouseLeave);
     };
-  }, []);
+  }, [isSupport]);
 
-  return <div ref={bgRef} className="magnet-bg"></div>;
+  return isSupport ? <div ref={bgRef} className="magnet-bg"></div> : null;
 };
 
 export default MagnetBg;
