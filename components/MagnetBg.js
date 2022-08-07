@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 const MagnetBg = () => {
   const bgRef = useRef();
 
-  const isSupport = Boolean(CSS.paintWorklet?.addModule);
+  const isSupport = Boolean(CSS?.paintWorklet?.addModule);
 
   useEffect(() => {
     if (!isSupport) {
@@ -23,7 +23,7 @@ const MagnetBg = () => {
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseleave", onMouseLeave);
 
-    CSS.paintWorklet?.addModule(
+    CSS?.paintWorklet?.addModule(
       `data:application/javascript;charset=utf8,${encodeURIComponent(`
       class MagnetMatrixPaintWorklet {
         static get inputProperties() { return ['--mouse-x', '--mouse-y', '--magnet-color', '--magnet-size', '--magnet-gap', '--magnet-radius']; }
