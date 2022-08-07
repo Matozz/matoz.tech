@@ -4,6 +4,7 @@ import BLOG from "@/blog.config";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
+import MagnetBg from "./MagnetBg";
 // import BlogPost from './BlogPost'
 
 const SideTOC = dynamic(() => import("@/components/SideTOC"), { ssr: false });
@@ -71,30 +72,34 @@ const Container = ({ children, layout, fullWidth, toc, ...customMeta }) => {
           BLOG.font === "serif" ? "font-serif" : "font-sans"
         }`}
       >
-        <Header
-          navBarTitle={layout === "blog" ? meta.title : null}
-          fullWidth={fullWidth}
-        />
-        <div className="flex flex-1">
-          <div className="flex-1"></div>
-          <main
-            className={`relative ml-auto mr-auto flex-grow w-full transition-all ${
-              !fullWidth ? "max-w-2xl px-4" : "px-4 md:px-24"
-            }`}
-          >
-            {children}
-          </main>
-          <div className="flex-1">
-            {toc?.links?.length > 0 && (
-              <SideTOC
-                links={toc.links}
-                minLevel={toc.minLevel}
-                anchorName="notion-header-anchor"
-              />
-            )}
+        {!customMeta.type && <MagnetBg />}
+
+        <div className="absolute inset-0">
+          <Header
+            navBarTitle={layout === "blog" ? meta.title : null}
+            fullWidth={fullWidth}
+          />
+          <div className="flex flex-1">
+            <div className="flex-1"></div>
+            <main
+              className={`relative ml-auto mr-auto flex-grow w-full transition-all ${
+                !fullWidth ? "max-w-2xl px-4" : "px-4 md:px-24"
+              }`}
+            >
+              {children}
+            </main>
+            <div className="flex-1">
+              {toc?.links?.length > 0 && (
+                <SideTOC
+                  links={toc.links}
+                  minLevel={toc.minLevel}
+                  anchorName="notion-header-anchor"
+                />
+              )}
+            </div>
           </div>
+          <Footer fullWidth={fullWidth} />
         </div>
-        <Footer fullWidth={fullWidth} />
       </div>
     </div>
   );

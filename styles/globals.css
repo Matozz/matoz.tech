@@ -187,6 +187,18 @@ nav {
   inset: 0;
 }
 
+/* magnet-bg */
+.magnet-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  --magnet-color: rgba(130, 130, 130, 0.3);
+  --magnet-size: 1;
+  --magnet-gap: 40;
+  --magnet-radius: 200;
+  background: paint(magnet-matrix);
+}
+
 audio::-webkit-media-controls-panel {
   background-color: transparent !important;
 }

@@ -191,7 +191,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
                 <Image
                   width={32}
                   height={32}
-                  src={`https://i0.hdslb.com/bfs/baselabs/60025fcd788afd49a3e08d680caed60be908d5bd.jpg`}
+                  src={`https://i0.hdslb.com/bfs/baselabs/e471e5eb3967f8bf1da160ae6a0b3a992c0aebcd.png`}
                   alt="Lucky Icon"
                   title="Lucky Icon"
                   className="hover:scale-110 active:scale-90 transition-transform duration-300 cursor-pointer"

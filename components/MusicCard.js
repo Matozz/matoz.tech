@@ -13,7 +13,7 @@ const MusicCard = ({
 }) => {
   const locale = useLocale();
   return (
-    <div className="w-full p-4 rounded-lg md:hover:bg-gray-200 md:hover:bg-opacity-40 md:dark:hover:bg-gray-800 md:dark:hover:bg-opacity-50  transition-all">
+    <div className="w-full p-4 rounded-lg md:hover:bg-gray-200 md:hover:bg-opacity-40 md:dark:hover:bg-gray-800 md:dark:hover:bg-opacity-50 transition-all backdrop-blur-sm">
       <div className="c-card block rounded-lg overflow-hidden">
         <div>
           <div className="mb-2 flex items-center justify-between gap-3">
