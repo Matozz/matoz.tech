@@ -126,9 +126,7 @@ const NavBar = () => {
             link.show && (
               <div key={link.id}>
                 <li className="items-center ml-4 text-gray-600 dark:text-gray-200 nav hidden lg:flex">
-                  <Link href={link.to}>
-                    <a>{link.name}</a>
-                  </Link>
+                  <Link href={link.to}>{link.name}</Link>
                 </li>
                 <button
                   aria-label={link.name}
@@ -185,19 +183,17 @@ const Header = ({ navBarTitle, fullWidth }) => {
         ref={navRef}
       >
         <div className="flex items-center">
-          <Link href="/">
-            <a aria-label={BLOG.title}>
-              <div className="flex">
-                <Image
-                  width={32}
-                  height={32}
-                  src={`https://i0.hdslb.com/bfs/baselabs/e471e5eb3967f8bf1da160ae6a0b3a992c0aebcd.png`}
-                  alt="Lucky Icon"
-                  title="Lucky Icon"
-                  className="hover:scale-110 active:scale-90 transition-transform duration-300 cursor-pointer"
-                />
-              </div>
-            </a>
+          <Link href="/" aria-label={BLOG.title} passHref>
+            <div className="flex">
+              <Image
+                width={32}
+                height={32}
+                src={`https://i0.hdslb.com/bfs/baselabs/e471e5eb3967f8bf1da160ae6a0b3a992c0aebcd.png`}
+                alt="Lucky Icon"
+                title="Lucky Icon"
+                className="hover:scale-110 active:scale-90 transition-transform duration-300 cursor-pointer"
+              />
+            </div>
           </Link>
           {navBarTitle ? (
             <p className="ml-4 font-medium text-day dark:text-night header-name">
