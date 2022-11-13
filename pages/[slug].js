@@ -1,9 +1,9 @@
-import Layout from "@/layouts/layout";
-import { getAllPosts, getPostBlocks } from "@/lib/notion";
-import BLOG from "@/blog.config";
+import Layout from "../layouts/layout";
+import { getAllPosts, getPostBlocks } from "../lib/notion";
+import BLOG from "../blog.config";
 import { createHash } from "crypto";
-import Container from "@/components/Container";
-import Error from "@/components/Error";
+import Container from "../components/Container";
+import Error from "../components/Error";
 
 const BlogPost = ({ post, blockMap, emailHash }) => {
   if (!post) {

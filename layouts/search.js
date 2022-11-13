@@ -1,10 +1,10 @@
 import { useState } from "react";
-import BlogPost from "@/components/BlogPost";
-import Container from "@/components/Container";
-import Tags from "@/components/Tags";
+import BlogPost from "../components/BlogPost";
+import Container from "../components/Container";
+import Tags from "../components/Tags";
 import PropTypes from "prop-types";
-import { useLocale } from "@/lib/locale";
-import CharmSearch from "@/lib/icon/CharmSearch";
+import { useLocale } from "../lib/locale";
+import CharmSearch from "../lib/icon/CharmSearch";
 
 const SearchLayout = ({ tags, posts, currentTag }) => {
   const locale = useLocale();

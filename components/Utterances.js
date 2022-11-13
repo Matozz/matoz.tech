@@ -1,5 +1,5 @@
-import BLOG from "@/blog.config";
-import { useTheme } from "@/lib/theme";
+import BLOG from "../blog.config";
+import { useTheme } from "../lib/theme";
 import { useEffect } from "react";
 const Utterances = ({ issueTerm, layout }) => {
   const { theme } = useTheme();

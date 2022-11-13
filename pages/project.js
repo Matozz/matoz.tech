@@ -1,6 +1,6 @@
-import BLOG from "@/blog.config";
-import ProjectLayout from "@/layouts/project";
-import { getAllData } from "@/lib/notion";
+import BLOG from "../blog.config";
+import ProjectLayout from "../layouts/project";
+import { getAllData } from "../lib/notion";
 
 export default function project({ projects }) {
   return <ProjectLayout projects={projects} />;

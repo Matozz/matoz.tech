@@ -1,6 +1,6 @@
 import Link from "next/link";
-import BLOG from "@/blog.config";
-import formatDate from "@/lib/formatDate";
+import BLOG from "../blog.config";
+import formatDate from "../lib/formatDate";
 
 const BlogPost = ({ post }) => {
   return (

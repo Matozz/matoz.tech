@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocale } from "@/lib/locale";
+import { useLocale } from "../lib/locale";
 
 const MusicCard = ({
   name,
