@@ -34,3 +34,6 @@ yarn-error.log*
 .vercel
 public/robots.txt
 public/sitemap.xml
+
+# tailwind 
+/styles/_output.css

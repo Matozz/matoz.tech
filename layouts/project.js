@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import ProjectCard from "@/components/ProjectCard";
+import Container from "../components/Container";
+import ProjectCard from "../components/ProjectCard";
 import React from "react";
 
 const ProjectLayout = ({ projects = [] }) => {

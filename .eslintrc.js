@@ -25,6 +25,8 @@ module.exports = {
     quotes: "off",
     "multiline-ternary": "off",
     "space-before-function-paren": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/display-name": "off",
   },
   globals: {
     React: true,

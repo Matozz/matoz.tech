@@ -1,19 +1,19 @@
 import Image from "next/image";
-import Container from "@/components/Container";
+import Container from "../components/Container";
 import dynamic from "next/dynamic";
-import TagItem from "@/components/TagItem";
+import TagItem from "../components/TagItem";
 import { NotionRenderer } from "react-notion-x";
 import { Code } from "react-notion-x/build/third-party/code";
 import { Collection } from "react-notion-x/build/third-party/collection";
 import { Equation } from "react-notion-x/build/third-party/equation";
-import BLOG from "@/blog.config";
-import formatDate from "@/lib/formatDate";
-import { useLocale } from "@/lib/locale";
+import BLOG from "../blog.config";
+import formatDate from "../lib/formatDate";
+import { useLocale } from "../lib/locale";
 import { useRouter } from "next/router";
-import Comments from "@/components/Comments";
+import Comments from "../components/Comments";
 import { useEffect, useRef, useState } from "react";
 
-const BackTopBtn = dynamic(() => import("@/components/BackTopBtn"), {
+const BackTopBtn = dynamic(() => import("../components/BackTopBtn"), {
   ssr: false,
 });
 
