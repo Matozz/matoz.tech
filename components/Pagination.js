@@ -1,6 +1,6 @@
 import Link from "next/link";
-import BLOG from "@/blog.config";
-import { useLocale } from "@/lib/locale";
+import BLOG from "../blog.config";
+import { useLocale } from "../lib/locale";
 
 const Pagination = ({ page, showNext }) => {
   const locale = useLocale();

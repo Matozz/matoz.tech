@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import MusicCard from "@/components/MusicCard";
+import Container from "../components/Container";
+import MusicCard from "../components/MusicCard";
 import React from "react";
 
 const MusicLayout = ({ musics = [] }) => {

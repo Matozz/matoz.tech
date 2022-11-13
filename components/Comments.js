@@ -1,6 +1,6 @@
-import { fetchCusdisLang } from "@/lib/cusdisLang";
+import { fetchCusdisLang } from "../lib/cusdisLang";
 import React from "react";
-import BLOG from "@/blog.config";
+import BLOG from "../blog.config";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import "gitalk/dist/gitalk.css";
@@ -13,7 +13,7 @@ const GitalkComponent = dynamic(
 );
 const UtterancesComponent = dynamic(
   () => {
-    return import("@/components/Utterances");
+    return import("../components/Utterances");
   },
   { ssr: false }
 );
